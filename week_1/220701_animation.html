@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background-color: aliceblue;
+                position: relative;
+                animation-name: myanimation;
+                /* 몇 초 동안 진행할지 지정(안해주면 작동 안함) */
+                animation-duration: 2s;
+                /* ease-in: 천천히 시작, ease-out: 빨리 시작, ease-in-out: 천천-빨리-천천 */
+                animation-timing-function: ease-in-out;
+                /* 애니메이션을 몇 번 반복할지 지정 */
+                animation-iteration-count: 3;
+                /* 한번 돌고 대기하는 시간 */
+                /* animation-delay: 1s; */
+            }
+
+            /* @keyframes 애니메이션이름 {} */
+            @keyframes myanimation {
+                /* %는 애니메이션 진행률 */
+                0% { left: 0px; }
+                25% { left: 100px; }
+                50% { left: 100px; }
+                75% { left: 300px; }
+                100% { left:400px; }
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div></div>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+            div{
+                width: 50px;
+                height: 50px;
+                border-radius: 70%;
+                background-color: pink;
+                position: absolute;
+                animation-name: square;
+                animation-iteration-count: 6;
+                animation-duration: 3s;
+
+            }
+
+            @keyframes square{
+
+                from, to{
+                    left:0px;
+                    top:0px;
+                    animation-timing-function: ease-out;
+                }
+                25%{
+                    left: 200px;
+                    top: 0px;
+                }
+                50%{
+                    left: 200px;
+                    top: 200px;
+                }
+                75%{
+                    left: 0px;
+                    top: 200px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div></div>
+    </body>
+</html>
