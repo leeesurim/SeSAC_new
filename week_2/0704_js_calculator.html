@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>간단 계산기 만들기</title>
+        <script>
+            function calculate(){
+                var num1 = document.getElementById("value1");
+                var num2 = document.getElementById("value2");
+                num1 = Number(num1.value);
+                num2 = Number(num2.value);
+                var op = document.getElementById("value3");
+                var result = document.getElementById("value4");
+                
+                switch (op.value) {
+                    case "+":
+                        result = num1 + num2;
+                    break;
+                    case "-":
+                        result = num1 - num2;
+                    break;
+                    case "*":
+                        result = num1 * num2;
+                    break;
+                    case "/":
+                        result = num1 / num2;
+                    break;
+                    default:
+                        alert("연산자를 다시 입력하세요.")
+                }
+                document.getElementById("value4").value = result;
+            }
+            function reset(){
+                document.getElementById("value1").value = null;
+                document.getElementById("value2").value = null;
+                document.getElementById("value3").value = null;
+                document.getElementById("value4").value = null;
+            }
+
+        </script>
+    </head>
+    <body>
+        값1: <input type="text" id="value1"><br>
+        값2: <input type="text" id="value2"><br>
+        연산자: <input type="text" id="value3"><br>
+        결과: <input type="text" id="value4"><br>
+        <button type="button" onclick="calculate();">계산하기</button>
+        <button type="button" onclick="reset();">초기화</button>
+    </body>
+</html>

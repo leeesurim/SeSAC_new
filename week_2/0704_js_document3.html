@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            div { background-color: pink; }
+            p { background-color: skyblue; }
+            .text {color: red; }
+
+        </style>
+        <script>
+            function addNode(){
+                var p1 = document.createElement("p");
+                var div1 = document.getElementById("div1");
+
+                p1.innerText="p태그입니다.";
+                p1.className = "text";
+                p1.style = "text-align:center;"
+
+                var img = document.createElement("img");
+                img.src = "nature1.jpg";
+                img.width = 100;
+                div1.appendChild(img);
+                div1.appendChild(p1);   
+            }
+
+
+            // 사용할 때 주의. 모든 내용 사라짐.
+            function change(){
+                document.write("<h1>안녕</h1>")
+            }
+
+            function removeNode(){
+                var div1 = document.getElementById("div1");
+                var child = document.getElementsByClassName("text");
+                console.log( child[0] );
+                child[0].remove();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <button type="buttom" onclick="addNode();">삽입</button>
+        <button type="buttom" onclick="change();">변경</button>
+        <button type="buttom" onclick="removeNode();">삭제</button>
+
+    </body>
+    
+</html>
