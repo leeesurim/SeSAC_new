@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+
+        <title>클래스 바꾸기</title>
+        <script>
+           
+            function switchColor(){ 
+                if ($("div").hasClass("red")){
+                    $("div").switchClass("red", "orange");
+                } else if ($("div").hasClass("orange")){
+                    $("div").switchClass("orange", "yellow");
+                } else if ($("div").hasClass("yellow")){
+                    $("div").switchClass("yellow", "green");
+                } else if ($("div").hasClass("green")){
+                    $("div").switchClass("green", "blue");
+                } else if ($("div").hasClass("blue")){
+                    $("div").switchClass("blue", "purple");
+                } else {
+                    $("div").switchClass("purple", "red");
+                }
+           }
+
+        </script>
+        <style>
+            #div1{
+                width: 100;
+                height: 100;
+            }
+            .red{
+                background-color: red;
+            }
+            .orange{
+                background-color: orange;
+            }
+            .yellow{
+                background-color: yellow;
+            }
+            .green{
+  
+                background-color: green;
+            }
+            .blue{
+                background-color: blue;
+            }
+            .purple{
+                background-color: purple;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="div1" class="red" onclick="switchColor()"></div>
+    </body>
+</html>

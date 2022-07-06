@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <title>이미지 바꾸기</title>
+        <script>
+            //힌트. img의 src 속성 바꾸기(jquery의 attr() 함수 이용하기)
+            function apple(){
+                $("img").attr("src", "images/apple.png");
+            }
+            function banana(){
+                $("img").attr("src", "images/banana.png");
+            }
+            function grape(){
+                $("img").attr("src", "images/grape.png");
+            }
+            function peach(){
+                $("img").attr("src", "images/peach.png");
+            }
+        </script>
+        <style>
+            div{
+                text-align: center;
+            }
+            img{
+                width: 500;
+                height: 500;
+                border: solid orange 7px;
+                border-radius: 50px;
+            }
+            button{
+                background-color: black;
+                color: white;
+                width: 60;
+                height: 40;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img><br>
+            <button type="button" onclick="apple()">사과</button>
+            <button type="button" onclick="banana()">바나나</button>
+            <button type="button" onclick="grape()">포도</button>
+            <button type="button" onclick="peach()">복숭아</button>
+        </div>
+        
+
+
+    </body>
+</html>

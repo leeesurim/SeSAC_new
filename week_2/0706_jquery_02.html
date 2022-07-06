@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <!-- 
+            switchClass 실습하기 위해서는 
+            jquery-ui 두가지 모두 불러와야 함
+            애니메이션 효과 이용할 수 있음
+        -->
+        <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+
+        <script>
+           function append(){ // 제일 뒤에 추가
+                // jQuery는 createElement 요소 없음
+                var li = document.createElement("li");
+                li.innerText = "append";
+                // document.querySelector("ul").appendChild(li);
+                $ ( "ul ").append(li);
+           }
+
+           function prepend(){ // 제일 앞에 추가
+                var li = document.createElement("li");
+                li.innerText = "prepend";
+                $("ul").prepend(li);
+           }
+
+           function before(){ // 2 앞에 추가(1과 2 사이)
+                var li = document.createElement("li");
+                li.innerText = "before";
+                $("#li2").before(li);
+           }
+
+           function after(){ // 2 뒤에 추가(2와 3 사이)
+                var li = document.createElement("li");
+                li.innerText = "after";
+                $("#li2").after(li);
+           }
+
+           function search(){ // 요소 탐색
+                console.log($("#li2").parent()); // 부모 요소 선택
+                console.log($("#li2").next()); // 형제 요소 선택 
+                console.log($("ul").children()); // 자식 요소 선택
+           }
+
+           function removeElement(){ // 선택한 요소만 지우기
+                $("#li2").remove();
+           }
+
+           function emptyElement(){ // 특정 요소 안에 모두 비우기
+                $("ul").empty();
+           }
+
+           function addClass(){ // 클래스 추가
+                $("div").addClass("css1");
+           }
+
+           function removeClass(){ // 클래스 삭제
+                $("div").removeClass("css1");
+           }
+
+           function hasClass(){ // 해당 클래스 여부(true, false 반환)
+                if ( $("div").hasClass("css1") ){
+                    alert("css1!!!!!!");
+                } else if ( !$("div").hasClass("css1") ){
+                    alert("no!!!!!");
+                }
+           }
+
+           function switchClass(){ // 클래스 변환
+                // switchClass(기존클래스, 변경클래스, 선택(초))
+                // hasClass()로 div가 있는지 확인 후 적용
+                if ( $("div").hasClass("css1") ){
+                    $( "div" ).switchClass("css1", "css2", 3000); // 3초
+                } else if ( !$("div").hasClass("css1") ){
+                    $( "div" ).switchClass("css2", "css2", 3000);
+                }
+
+           }
+        </script>
+        <style>
+            .css1 {
+                width: 100px;
+                height: 100px;
+                background-color: brown;
+            }
+
+            .css2 {
+                width: 200px;
+                height: 200px;
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <button type="button" onclick="addClass()">addClass</button>
+        <button type="button" onclick="removeClass()">removeClass</button>
+        <button type="button" onclick="hasClass()">hasClass</button>
+        <button type="button" onclick="switchClass()">switchClass</button>
+        <ul>
+            <li>1</li>
+            <li id="li2">2</li>
+            <li id="li3">3</li>
+        </ul>
+        <button type="button" onclick="append()">append</button>
+        <button type="button" onclick="prepend()">prepend</button>
+        <button type="button" onclick="before()">before</button>
+        <button type="button" onclick="after()">after</button>
+        <button type="button" onclick="search()">search</button>
+        <button type="button" onclick="removeElement()">remove</button>
+        <button type="button" onclick="emptyElement()">empty</button>
+        
+    </body>
+</html>
