@@ -1,96 +1,141 @@
 <html>
     <head>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js" ></script>
 
-        <title>스케줄 만들기</title>
-        <script>
+        <title> 내 스케줄 </title>
 
-        </script>
         <style>
-            table {
-                width: 500px;
-                height: 500px;
-                text-align: center;
+            td {
+                width: 100px;
+                height: 100px;
+            }
+            tr > td:first-child > p,
+            tr > th:first-child > p {
+                color: red
+            }
+            tr > td:last-child > p,
+            tr > th:last-child > p {
+                color: blue;
+            }
+            td > p:hover {
+                transform: scale(1.2);
+                cursor:pointer;
             }
         </style>
     </head>
-    <body>
-        
-        날짜: <input type="text" id="date"><br>
-        내용: <input type="text" id="content"><br>
-        <button type="button">작성</button><br>
 
-        <table>
-            <caption>2022년 7월</caption>
-            <thead>
-                <tr>
-                    <th>일</th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                    <th>토</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>12</td>
-                    <td>13</td>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                </tr>
-                <tr>
-                    <td>17</td>
-                    <td>18</td>
-                    <td>19</td>
-                    <td>20</td>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>23</td>
-                </tr>
-                <tr>
-                    <td>24</td>
-                    <td>25</td>
-                    <td>26</td>
-                    <td>27</td>
-                    <td>28</td>
-                    <td>29</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>31</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-            
+    <body > 
+        <div>
+            <img src="images/01.jpg" width="300px" height="150px"><br>
+
+            날짜 : <input type="text" id="date" readonly> <br>
+            <!-- readonly하면 읽기만 가능 -->
+            내용 : <input type="text" id="content"> <br>
+            <button type="button" onclick="writeSchedule();">작성</button> <br>
+        </div> 
+        <div style="font-size:2em; color: navy; text-align:center;">
+            2022년 7월        
+        </div> 
+
+        <br>
+        
+        <table align="center" width=500 style="text-align:center;">
+            <tr>
+                <th>일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+            </tr>
+            <tr>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p>1</p></td>
+                <td><p>2</p></td>
+            <tr>
+                <td><p>3</p></td>
+                <td><p>4</p></td>
+                <td><p>5</p></td>
+                <td><p>6</p></td>
+                <td><p>7</p></td>
+                <td><p>8</p></td>
+                <td><p>9</p></td>
+            </tr>
+            <tr>
+                <td><p>10</p></td>
+                <td><p>11</p></td>
+                <td><p>12</p></td>
+                <td><p>13</p></td>
+                <td><p>14</p></td>
+                <td><p>15</p></td>
+                <td><p>16</p></td>
+            </tr>
+            <tr>
+                <td><p>17</p></td>
+                <td><p>18</p></td>
+                <td><p>19</p></td>
+                <td><p>20</p></td>
+                <td><p>21</p></td>
+                <td><p>22</p></td>
+                <td><p>23</p></td>
+            </tr>
+            <tr>
+                <td><p>24</p></td>
+                <td><p>25</p></td>
+                <td><p>26</p></td>
+                <td><p>27</p></td>
+                <td><p>28</p></td>
+                <td><p>29</p></td>
+                <td><p>30</p></td>
+            </tr>
+            <tr>
+                <td><p>31</p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+            </tr>
         </table>
 
+        <script>
+            var target;
+            
+            // onclick과 동일. click하면 function 적용
+            $("td").on("click", function( obj ){
+                console.log(obj);
+                target = obj.currentTarget; // 현재 선택한 태그 target 변수에 담기 지금, td가 console.log로 나온다.
+                console.log( target );
+                $("#date").val( $(obj.currentTarget).text() );
+                // alert( $(obj.currentTarget).text() );
+            });
+
+            function writeSchedule(){
+                // 이 함수를 채워주세요.
+                var content = $("#content").val();
+
+                // 첫번째 방법
+                $(target).append("<p>" + content + "</p>");
+
+                // 두번째 방법(click 이벤트 사용할 필요x)
+                // var tds = document.querySelectorAll("p");
+                // for (var i = 0; i < ps.length; i++) {
+                //     console.log(ps[i]);
+                //     if ($(ps[i]).text() == $("#date").val()){
+                //         $(ps[i]).after(
+                //             "<h1>adf</h1>"
+                //         )
+                //     }
+                // }
+
+            }
+        </script>
     </body>
 </html>
