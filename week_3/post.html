@@ -8,6 +8,12 @@
             body{
                 text-align: center;
             }
+            .post{
+                width: 700px;
+                height: 600px;
+                position: relative;
+                top: 100px;
+            }
             .post:hover{
                 transform: scale(1.1);
                 cursor:pointer;
@@ -17,43 +23,115 @@
                 width: 80px;
                 height: 80px;
                 position: relative;
-                bottom: 200px;
+                bottom: 100px;
                 cursor:pointer;
             }
             
         </style>
     </head>
     <body>
-        <div>
-            <img src="2022.png" class="post" data-bs-toggle="modal" data-bs-target="#exampleModal"><br>
-            <!-- Button trigger modal -->
-            <img src="touch.png" class="touch"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">선생님께</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="d-flex flex-column">
+            <div class="flex-fill">
+                <!-- navbar -->
+                <nav class="navbar navbar-expand navbar-dark bg-dark">
+                    <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">홈</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="post.html">학원 소개</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            온라인
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">전체과정</a></li>
+                            <li><a class="dropdown-item" href="#">A 그룹 과정</a></li>
+                            <li><a class="dropdown-item" href="#">Pre-A 그룹 과정</a></li>
+                            <li><a class="dropdown-item" href="#">Post-A 그룹 과정</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            오프라인
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">전체과정</a></li>
+                            <li><a class="dropdown-item" href="#">앱</a></li>
+                            <li><a class="dropdown-item" href="#">웹</a></li>
+                            <li><a class="dropdown-item" href="#">AI</a></li>
+                            <li><a class="dropdown-item" href="#">빅데이터</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal01">오시는 길</a>
+                        </li>
+                        </ul>
+                    </div>
+                    </div>
+                </nav>
+            </div>
+            <div>
+                <img src="images/2022.png" class="post" data-bs-toggle="modal" data-bs-target="#exampleModal02"><br>
+                <!-- Button trigger modal -->
+                <img src="images/touch.png" class="touch"  data-bs-toggle="modal" data-bs-target="#exampleModal02">
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal02" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">선생님께</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="text-align: center;">
+                            <img src="images/thanks.png" width="300px" height="200px"><br>
+                            안녕하세요! 수강생 이수림입니다. <br>
+                            항상 친절하게 잘 가르쳐주셔서 감사합니다! <br>
+                            부족한 만큼 잘 따라갈 수 있도록 노력하겠습니다. <br>
+                            코로나 조심하시고, 건강하세요! <br>
+                        </p>
+                     
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">닫기</button>
+                    
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <p style="text-align: center;">
-                        <img src="thanks.png" width="300px" height="200px"><br>
-                        안녕하세요! 수강생 이수림입니다. <br>
-                        항상 친절하게 잘 가르쳐주셔서 감사합니다! <br>
-                        부족한 만큼 잘 따라갈 수 있도록 노력하겠습니다. <br>
-                        코로나 조심하시고, 건강하세요! <br>
-                    </p>
-                 
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">닫기</button>
-                
                 </div>
             </div>
-            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal01" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">오시는 길</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.5870077734385!2d126.88422011531019!3d37.517657679807044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f4837eedf23%3A0xa144925e6b20c90b!2z7LKt64WE7Leo7JeF7IKs6rSA7ZWZ6rWQIOyYgeuTse2PrOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1657266366140!5m2!1sko!2skr" width="770" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    </div>
+                </div>
+                </div>
+            </div>        
+
+
         </div>
+        
 
 
     </body>
