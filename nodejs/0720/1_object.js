@@ -12,4 +12,4 @@ console.log(key00);
 
 let obj2 = {a:1, b:2, c:3, d:4};
 // ... : 전개연산자 원하는 것 가져오고 나머지 다 가져올 수 있음
-const {a, b, ... rest} = pbj;
+const {a, b, ... rest} = obj;

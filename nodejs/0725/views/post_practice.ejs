@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>
+            실습 31. POST로 정보 받기
+        </title>
+    </head>
+    <body>
+        <form action="post_receive" method="POST">
+            <h2>폼 전송 - 실습</h2>
+            <fieldset>
+                <legend>개인정보</legend>
+                <label>
+                    이름 :
+                    <input type="text" name="name" placeholder="이름" required> <br>
+                </label>
+
+                <label>
+                    이메일 :
+                    <input type="email" name="email"  placeholder="username@gmail.com" required> <br>
+                </label>
+
+                <label>
+                    비밀번호 :
+                    <input type="password" name="password" required> <br>
+                </label>
+
+                <label>
+                    전화번호 : 
+                    <input name="tel" type="tel" placeholder="010-1234-5678" required> <br>
+                </label>
+
+                성별 : 
+                <input type="radio" name="gender" id="gender_1" value="남자" required>
+                <label for="gender_1">남자</label>
+                <input type="radio" name="gender" id="gender_2" value="여자" required>
+                <label for="gender_2">여자</label> <br>
+            
+                생년월일 :
+                <select name="year">
+                    <% for (var i = 1950; i <= 2022; i++) { %>
+                        <option value="<%=i%>"><%=i%></option>
+                    <%}%>
+                </select>년
+
+                <select name="month">
+                    <% for (var i = 1; i <= 12; i++) { %>
+                        <option value="<%=i%>"><%=i%></option>
+                    <%}%>
+                </select>월
+
+                <select name="day">
+                    <% for (var i = 1; i <= 31; i++) { %>
+                        <option value="<%=i%>"><%=i%></option>
+                    <%}%>
+                </select>월 <br>
+            </fieldset>
+                
+            <fieldset>
+                <legend>관심사</legend>
+                <input type="checkbox" name="interest" id="interest_1" value="여행">
+                <label for="interest_1">여행</label>
+                <input type="checkbox" name="interest" id="interest_2" value="패션">
+                <label for="interest_2">패션</label>
+                <input type="checkbox" name="interest" id="interest_3" value="음식">
+                <label for="interest_3">음식</label> <br>
+            </fieldset>
+            <br>
+
+            <input type="reset" value="초기화">
+            <button>회원가입</button>
+            
+        </form>
+    </body>
+</html>
