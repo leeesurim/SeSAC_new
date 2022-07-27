@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>실습 33. 30번 => axios로 보내기</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function sendForm(){
+                var form = document.getElementById("form_info");
+
+                axios({
+                    method: "get",
+                    url: "http://localhost:8080/get_receive",
+                    params: {
+                        name: form.name.value,
+                        gender: form.gender.value,
+                        date: form.year.value + "년 "+ form.month.value + "월 " + form.day.value + "일 ",
+                    }
+                })
+                .then((a) => {return a.data;})
+                .then((b) => {alert(b.name + "님 회원가입 완료!");})
+            }
+        </script>
+
+    </head>
+    <body>
+        <form id="form_info">
+            <fieldset>
+                <legend>폼 전송 - 실습</legend>
+                <label>
+                    이름 
+                    <input type="text" name="name" required> <br>
+                </label>
+                
+                성별 
+                <input type="radio" name="gender" id="gender_1" value="남자">
+                <label for="gender_1">남자</label>
+                <input type="radio" name="gender" id="gender_2" value="여자">
+                <label for="gender_2">여자</label> <br>
+                
+                생년월일
+                <select name="year">
+                    <% for (var i = 1950; i <= 2022; i++) { %>
+                        <option value="<%=i%>"><%=i%></option>
+                    <%}%>
+                </select>년
+
+                <select name="month">
+                    <% for (var i = 1; i <= 12; i++) { %>
+                        <option value="<%=i%>"><%=i%></option>
+                    <%}%>
+                </select>월
+
+                <select name="day">
+                    <% for (var i = 1; i <= 31; i++) { %>
+                        <option value="<%=i%>"><%=i%></option>
+                    <%}%>
+                </select>월 <br>
+            
+                
+                <button type="button" onclick="sendForm();">회원가입</button>
+            </fieldset>
+        </form>
+    </body>
+</html>

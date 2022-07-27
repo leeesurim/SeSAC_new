@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Axios</title>
+
+        <!-- Axios 사용하기 위해서 필요 -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        
+        <script>
+            function sendGet(){
+                axios({
+                    method: "get",
+                    url: "http://localhost:8080/receive",
+                    params: {
+                        name: "codee"
+                    }
+                })
+                .then((a) => { return a.data; })
+                .then((d) => {
+                    alert(d.message);
+                });
+            }           
+             
+            function sendPost(){
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/receive",
+                    data: {
+                        name: "codee"
+                    }
+                })
+                .then((a) => { return a.data; })
+                .then((d) => {
+                    alert(d.message);
+                });
+                // 필요한 데이터 부분만 리턴
+            }
+            
+            function sendForm(){
+                var form = document.getElementById("form_info");
+                console.log(form);
+
+                // 안에 있는 속성을 보고 모두 통과하면 true 하나라도 통과하지 못하면 false
+                let result = form.checkValidity();
+                if (!result){
+                    // 
+                    form.reportValidity();
+
+                    // 함수 빠져 나옴
+                    return false;
+                }
+                console.log(result);
+
+                // form 태그 안에서만 사용할 수 있는 특징
+                // console.log(form.name.value);
+                // console.log(form.age.value);
+
+                // axios({
+                //     method: "post",
+                //     url: "http://localhost:8080/receive",
+                //     data: {
+                //         name: form.name.value
+                //     }
+                // })
+                // .then((a) => { return a.data; })
+                // .then((d) => {
+                //     alert(d.message);
+                // });
+            }
+        </script>
+    </head>
+    <body>
+        <!-- button type을 지정하지 않으면 함수 실행 -->
+        <button onclick="sendGet();">sendGet</button><br><br>
+        <button onclick="sendPost();">sendPost</button><br><br>
+        
+
+        <!-- form 안에 button을 넣고 onclick 함수를 실행하려면 button type="button" 지정 -->
+        <form id="form_info">
+            <input type="text" name="name" required>
+            <input type="text" name="age" required><br>
+            <button type="button" onclick="sendForm();">sendForm</button>
+        </form>
+    </body>
+</html>
