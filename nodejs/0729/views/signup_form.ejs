@@ -3,7 +3,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
         <title>
-            실습 32. 회원가입
+            실습 36. 파일업로드
         </title>
         <style>
             form{
@@ -16,7 +16,7 @@
 
     </head>
     <body>
-        <form action="form_receive" method="POST">
+        <form action="signup_receive" method="POST" enctype="multipart/form-data">
             <br>
             <h2>회원가입</h2>
 
@@ -40,24 +40,10 @@
                     <label for="email" class="floatingInput">이메일</label>
                 </div>
 
+                
                 <div class="form-floating mb-3 d-grid gap-2 col-4 mx-auto">
-                    <input type="tel" class="form-control" id="tel" name="tel" placeholder="010-1234-5678" required>
-                    <label for="tel">전화번호</label>
-                </div>
-
-                <div class="form-floating mb-3 d-grid gap-2 col-4 mx-auto">
-                    <input type="date" class="form-control" id="date" name="date" placeholder="생년월일" required>
-                    <label for="date">생년월일</label>
-                </div>
-
-
-                <div class="form-floating mb-3 d-grid gap-2 col-4 mx-auto">
-                    <select class="form-select" id="gender" name="gender" required>
-                      <option selected>성별</option>
-                      <option value="남자">남자</option>
-                      <option value="여자">여자</option>
-                    </select>
-                    <label for="gender">성별</label>
+                    <input type="file" name="userfile" >
+                    <!-- <button class="btn btn-primary" type="button">업로드</button> -->
                 </div>
 
             

@@ -10,12 +10,12 @@ app.use(express.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 app.get("/", function(req, res){
-    res.render("form_practice");
+    res.render("signup_form");
 });
 
-app.post("/form_receive", function(req,res){
+app.post("/signup_receive", function(req,res){
     let info = req.body;
-    res.render("form_receive", req.body);
+    res.render("signup_receive", req.body);
     fs.writeFile("./info.txt", info.id + "//" + info.name  + "//" + info.password );
 });
 
