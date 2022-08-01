@@ -50,7 +50,7 @@ app.post("/upload/array", upload.array('userfile'), function(req, res){
     res.send("Upload Array");
 });
 
-// 올릴 파일만큼 지정해줘야 함(잘 사용하지 않음)
+// 여러개 업로드 - 올릴 파일만큼 지정해줘야 함(잘 사용하지 않음)
 app.post("/upload/fields", upload.fields([{name:'userfile'}, {name:'userfile2'}, {name:'userfile3'}]), function(req, res){
     console.log(req.body);
     console.log(req.files);
