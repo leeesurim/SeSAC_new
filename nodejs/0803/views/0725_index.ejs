@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Index.ejs</title>
+    </head>
+
+    <body>
+        <form action="/receive" method="GET">
+            <fieldset>
+                <legend>이름/성별</legend>
+                <label>
+                    이름 :
+                    <input type="text" name="name" placeholder="이름" required> <br>
+                </label>
+                
+
+                <!-- radio 한개만 선택 가능, 취소 불가 -->
+                <input type="radio" name="gender" id="gender_1" value="남">
+                <label for="gender_1">남</label>
+                <input type="radio" name="gender" value="여">여 <br>
+            </fieldset>
+
+            <fieldset>
+                <legend>운동/연도</legend>
+                <!-- checkbox 여러개 선택 가능, 취소 가능 -->
+                <input type="checkbox" name="sport" value="축구">축구
+                <input type="checkbox" name="sport" value="농구">농구
+                <input type="checkbox" name="sport" value="배구">배구 <br>
+
+                <!-- <input type="date"><br>
+                <input type="color"><br>
+                <input type="number"><br>
+                <input type="time"><br>
+                <input type="password"><br> -->
+
+                <!-- form들의 데이터를 모두 초기화 -->
+                <!-- <input type="reset" value="Reset"><br> -->
+
+                <!-- 목록이 많을 때는 select 사용하는 것이 좋음 -->
+                <select name="year">
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                </select>
+            </fieldset>
+            <button>전송</button>
+        </form>
+
+        </form>
+    </body>
+</html>
