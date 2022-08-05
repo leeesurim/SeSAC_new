@@ -3,8 +3,10 @@ const fs = require("fs").promises;
 
 exports.post_user = function(data){
     console.log(data);
+    // writeFile => appendFile: 덮여쓰기 , 개행문자 \n 추가
+    // const {id, password, name } = data;
+    // fs.appendFile("./info.txt", '$(id)//$(password)//$(name)\n');
     fs.appendFile("./info.txt", data.id + "//" + data.password  + "//" + data.name + "\n");
-    
 }
 
 exports.get_user = async function(){

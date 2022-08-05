@@ -26,45 +26,44 @@ exports.login = (req, res) => {
 exports.post_login = async (req, res) => {
     // controller은 데이터 읽을 수 없기 때문에 model에서 가져와야 함
     var data = await User.get_user();
-    var p = data.split("\n");
-    var id = req.body.id;
-    var pw = req.body.password;
+    // "a//1//a//\nb//2//b"
+    var infos = data.split("\n");
+    // infos = ["a//1//a" , "b//2//b"]
 
-
-    for (var i = 0; i < p.length -1; i++){
-        var info = p[i].split("//");
-
-
-        if ( info[0] == id && info[1] == pw){
-            console.log("로그인 성공!");
-            break;
-        } else {
-            console.log("아이디와 비밀번호를 다시 확인하세요.");
-            continue;
+    // 첫번째 정답
+    for (let i = 0; i < infos.length; i++){
+        var info = infos[i].split("//");
+        // {a,1,a}
+        if( info[0] == req.body.id && info[1] == req.body.password ){
+            res.send("로그인 성공!");
+            return false;
         }
+    }
+    res.send("로그인 실패");
 
 
+    /* 두번째 정답
+    var flag = false;
+    for (let i = 0; i < infos.length; i++){
+        var info = infos[i].split("//");
+        if (info[0] == req.body.id && info[1] == req.body.password) flag = true;
+    }
 
-        // if ( info[0] != id ){
-        //     console.log("아이디 다름");
-        //     continue; 
+    if (flag) res.send("성공");
+    else res.send("실패");
+    */
+    
 
-        // } else if (info[1] != pw){
-        //     console.log("비밀번호 다름");
-        //     continue;
+    /* 첫번째 실습
+    if ( info[0] != id ){
+        res.send("아이디 다름");
 
-        // } else {
-        //     console.log("로그인 성공!");
-        //     break;
-        // }
-       
+    } else if (info[1] != pw){
+        res.send("비밀번호 다름");
 
-        }
-
-
-
-
-  
-   
+    } else {
+        res.send("로그인 성공!");
+    }
+    */
 
 }
