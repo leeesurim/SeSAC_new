@@ -19,12 +19,88 @@
                     // data = { id : 숫자 }
 
                     let html = 
-                    "<tr><td>" + data.id + "</td><td>" + form.name.value + "</td><td>" + form.comment.value + "</td></tr>";
+                    "<tr id='tr_"+ data.id +"'><td>" + data.id + "</td><td>" + form.name.value + "</td><td>" + form.comment.value + "</td>" + 
+                    "<td><button type='button' onclick='editComment("+ data.id + ");'>수정</button></td><td><button type='button' onclick='deleteComment(" + data.id + ");'>삭제</button></td></tr>";
 
                     $( "table" ).append(html);
                 });
             }
 
+            function editComment( id ){
+                axios({
+                    method: 'get',
+                    url: 'http://localhost:8000/visitor/get?id=' + id
+                })
+                .then((rep) => { return rep.data })
+                .then((data) => {
+                    console.log( data.result );
+
+                    var form = document.getElementById("form_comment");
+                    form.name.value = data.result.name;
+                    form.comment.value = data.result.comment;
+
+                    var html = 
+                    "<button type='button' onclick='editDo("+ id + ");'>수정</button>" +
+                    "<button type='button' onclick='editCancel();'>취소</button>" ;
+
+                    document.getElementById("button-group").innerHTML = html;
+                });
+            }
+
+            function editCancel(){
+                var form = document.getElementById("form_comment");
+
+                // 전체 초기화
+                form.reset();
+
+                var html = "<button type='button' onclick='writeComment();'>등록</button>";
+
+                document.getElementById("button-group").innerHTML = html;
+            }
+
+
+            function editDo( id ){
+                var form = document.getElementById("form_comment");
+                axios({
+                    method: 'patch',
+                    url: 'http://localhost:8000/visitor/edit',
+                    data: {
+                        id : id,
+                        name : form.name.value,
+                        comment : form.comment.value
+                    }
+                }).then((rep) => {return rep.data;})
+                .then((data) => {
+                    alert(data);
+
+                    var tr = document.getElementById("tr_" + id);
+                    // tr의 자식요소 선택. 자식요소는 배열형태로 들어감
+                    var children = tr.children;
+
+                    $(children[1]).text(form.name.value);
+                    $(children[2]).text(form.comment.value);
+                    console.log(children);
+                })
+            }
+
+            function deleteComment( id ){
+                axios({
+                    method: 'delete',
+                    url: 'http://localhost:8000/visitor/delete',
+                    data: { id:id }
+                }).then((rep) => {return rep.data;})
+                .then((data) => {
+                    alert(data);
+
+                    var tr = document.getElementById("tr_" + id);
+                    $(tr).remove();
+
+                    //$("#tr_" + id).remove();
+                });
+            }
+
+
+            
         </script>
     </head>
     <body>
@@ -34,6 +110,7 @@
                     <legend>방명록 등록</legend>
                     <div><input name="name" type="text" placeholder="사용자 이름"></div>
                     <div><input name="comment" type="text" placeholder="방명록"></div>
+                    <!-- 버튼 그룹을 선택하고 작성한 것으로 변경하기 위해 작성 -->
                     <div id="button-group">
                         <button type="button" onclick="writeComment();">등록</button>
                     </div>
@@ -55,10 +132,12 @@
                 <%
                     for ( let i = 0; i < data.length; i++ ){
                 %> 
-                    <tr>
+                    <tr id="tr_<%=data[i].id%>">
                         <td><%=data[i].id%></td>
                         <td><%=data[i].name%></td>
                         <td><%=data[i].comment%></td>
+                        <td><button type="button" onclick="editComment( '<%=data[i].id%>' );">수정</button></td>
+                        <td><button type="button" onclick="deleteComment( '<%=data[i].id%>' );">삭제</button></td>
                     </tr>
                 <%
                     }
