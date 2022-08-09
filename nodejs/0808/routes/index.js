@@ -12,9 +12,9 @@ router.post("/login", user.post_login);
 router.get("/update", user.update);
 router.post("/update", user.post_select);
 router.patch("/update", user.patch_update);
+router.delete("/update", user.delete_user);
+// router.get("/delete", user.delete);
+// router.post("/delete", user.post_select);
 
-router.get("/delete", user.delete);
-router.post("/delete", user.post_select);
-router.delete("/delete", user.delete_user);
 
 module.exports = router;

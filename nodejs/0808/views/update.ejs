@@ -52,12 +52,30 @@
                 })
             }
 
+            function userDelete(){
+                 var form = document.getElementById('form_update');
+
+                axios({
+                    method: 'delete',
+                    url: 'http://localhost:8000/user/update',
+                    data: {
+                        id: form.id.value,
+                        pw: form.pw.value,
+                        name: form.name.value
+                    }
+                }).then((rep) => {return rep.data;})
+                .then((data) => {
+                    alert(data);
+                    $("input").val("");
+                })
+            }
+
         </script>
 
     </head>
     <body>
         <!-- 라우터 경로와 동일하게 작성. app.use 경로 + routes 경로 -->
-        <form action="/user/update" method="post" id="form_update">
+        <form  id="form_update">
             <br>
             <h2>회원정보 수정</h2>
                 <div class="form mb-3 d-grid gap-2 col-3 mx-auto">
@@ -79,6 +97,10 @@
             
                 <div class="mb-3 d-grid gap-2 col-3 mx-auto">
                     <button type="button" onclick="userUpdate();" class="btn btn-outline-primary">회원정보 수정</button>
+                </div>
+
+                <div class="mb-3 d-grid gap-2 col-3 mx-auto">
+                    <button type="button" onclick="userDelete();" class="btn btn-outline-danger">회원정보 삭제</button>
                 </div>
 
         </form>

@@ -37,30 +37,27 @@ exports.update = (req, res) => {
 }
 
 exports.post_select = (req, res) => {
+   
     User.get_user(req.body, function(result){
         console.log("result[0]: ", result[0]);
+
         if (req.body.id == result[0].id){
             res.send({result : result[0]});
-        } else{
-            res.send("아이디를 다시 입력하세요.")
-        }
+        } 
     })
 }
 
 exports.patch_update = (req, res) => {
     User.update(req.body, function(result){
-        console.log(result);
+        console.log("result: ", result);
         res.send("수정 완료");
     });
 
 }
 
-exports.delete = (req, res) => {
-    res.render("delete");
-}
 
 exports.delete_user = (req, res) => {
-    User.delete(req.body, function(result){
-        res.send("삭제 성공");
+    User.delete(req.body.id, function(result){
+        res.send("탈퇴 완료");
     })
 }

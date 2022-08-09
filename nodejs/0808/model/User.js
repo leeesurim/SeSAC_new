@@ -40,9 +40,9 @@ exports.update = (data, cb) => {
 }
 
 // 회원정보 삭제
-exports.delete = (data, cb) => {
-    
-    let sql = `DELETE FROM register WHERE id = "${data.id}"`;
+exports.delete = (id, cb) => {
+    console.log("id: " ,id);
+    let sql = `DELETE FROM register WHERE id = "${id}"`;
     cnn.query(sql, (err, rows) => {
         if (err) throw err;
         cb(rows);
