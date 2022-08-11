@@ -22,14 +22,14 @@ exports.post_register = (req, res) => {
     models.User.create( object )
     .then((result) => {
         console.log(result);
-        res.send(req.body);
+        res.send("회원가입 성공");
     });
 
     // let sql = "INSERT INTO register VALUES('"+ data.id +"', '"+ data.pw +"', '"+ data.name +"' )";
     // User.insert(req.body, function(){
     //     res.send("회원가입 성공");
     // });
-    // res.send(req.body);
+   
 }
 
 exports.login = (req, res) => {
@@ -37,6 +37,19 @@ exports.login = (req, res) => {
 }
 
 exports.post_login = (req,res) => {
+    models.User.findOne({
+        where: {id: req.body.id}
+    }).then((result) => {
+        console.log(result);
+
+        if (req.body.id == result.id && req.body.pw == result.pw){
+            res.send("로그인 성공");
+        } else {
+            res.send("로그인 실패");
+        }
+    })
+
+    // let sql = `SELECT * FROM register WHERE id = "${data.id}" limit 1`;
     // User.get_user(req.body, function(result){
     //     console.log("result[0]: ", result[0]);
     //     if (req.body.id == result[0].id && req.body.pw == result[0].pw){
@@ -52,7 +65,15 @@ exports.update = (req, res) => {
 }
 
 exports.post_select = (req, res) => {
-   
+    models.User.findOne({
+        where: {id: req.body.id}
+    }).then((result) => {
+        console.log(result);
+        if (req.body.id == result.id){
+            res.send({result: result});
+        } 
+    })
+
     // User.get_user(req.body, function(result){
     //     console.log("result[0]: ", result[0]);
 
@@ -63,6 +84,19 @@ exports.post_select = (req, res) => {
 }
 
 exports.patch_update = (req, res) => {
+    let newObj = {
+        pw: req.body.pw,
+        name: req.body.name
+    };
+
+    models.User.update(newObj, {where: {id: req.body.id}})
+    .then((result) => {
+        console.log(result);
+        res.send("수정 완료");
+    })
+
+
+    // let sql = `UPDATE register SET pw='${data.pw}', name='${data.name}' WHERE id='${data.id}' `;
     // User.update(req.body, function(result){
     //     console.log("result: ", result);
     //     res.send("수정 완료");
@@ -72,7 +106,16 @@ exports.patch_update = (req, res) => {
 
 
 exports.delete_user = (req, res) => {
-    User.delete(req.body.id, function(result){
+    models.User.destroy({
+        where: {id: req.body.id}
+    }).then((result) => {
+        console.log(result);
         res.send("탈퇴 완료");
     })
+
+
+    // let sql = `DELETE FROM register WHERE id = "${id}"`;
+    // User.delete(req.body.id, function(result){
+    //     res.send("탈퇴 완료");
+    // })
 }
