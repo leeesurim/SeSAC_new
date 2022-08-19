@@ -12,6 +12,7 @@
   font-style: normal;
 }
 
+
 body {
   margin: 0;
   font-family: 'Pretendard-Medium';
@@ -22,16 +23,23 @@ a {
   color: #263343;
 }
 
+a:hover {
+  color: #FF725E;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f0f4f5;
+  /* background-color: #B0BEC5; */
+  background-color: #faccc1;
+  /* background-color: #fdd6bd; */
   padding: 8px 12px;
   
   position: fixed;
   width: 100%;
   height: 60px;
+  
 }
 
 .navbar_logo {
@@ -51,7 +59,8 @@ a {
 
 .navbar_menu li:hover {
   border-radius: 4px;
-  background-color: #daecf1;
+  border:2px solid #FF725E;
+  /* background-color: #daecf1; */
 }
 
 main{
@@ -77,7 +86,7 @@ article {
 img {
   display: flex;
   width: 50vh;
-  height: 130vh;
+  height: 80vh;
   margin-left: auto;
   margin-right: 50px; 
   border-radius: 8px;
@@ -85,7 +94,9 @@ img {
 
 .right {
   flex: 1;
-  height: 130vh;
+  height: 80vh;
+  width: 30vh;
+  
 }
 
 .titDep {
@@ -124,14 +135,13 @@ input {
 }
 
 input:focus {
-  outline: 1px solid #5DC8CD;
+  outline: 1px solid #FF725E;
 }
 
 .inp_dup {
   display: flex;
   justify-content: row;
 }
-
 
 .inpL{
   margin-bottom: 20px;
@@ -154,21 +164,29 @@ input:focus {
   height: 45px;
   line-height: 45px;
   padding: 0 10px;
-  color: #63a1ff;
+  color: #FF725E;
   font-size: 1rem;
   border-radius: 12px;
-  background: #e6effe;
+  /* background: #FF725E; */
 }
 
 .btnLineP {
-  color: #63a1ff;
-  border: 1px solid #63a1ff;
+  color: #FF725E;
+  border: 1px solid #FF725E;
   background: #fff;
+}
+
+.btnLineP:hover {
+  color : #B0BEC5;
+  border: 1px solid #B0BEC5;
+  background: #fff;
+
 }
 
 .radFrm {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 [type=radio] + label {
@@ -190,9 +208,9 @@ input:focus {
   line-height: 45px;
 }
 input[type=radio]:checked+label{
-  background-color: #5DC8CD;
+  background-color: #FF725E;
   color: #fff;
-  border: 1px solid #5DC8CD;
+  border: 1px solid #FF725E;
 }
 
 .button {
@@ -209,11 +227,14 @@ input[type=radio]:checked+label{
   border: none;
   border-radius: 5px;
   transition: all 0.2s ;
-  background: #5DC8CD;
+  /* background: #ff8964; */
+  /* background: #f97524; */
+  background: #FF725E;
+  
 }
 
 .btnLightBlue.btnPush {
-  box-shadow: 0px 5px 0px 0px #1E8185;
+  box-shadow: 0px 5px 0px 0px #faccc1;
 }
 .btnPush:hover {
   cursor: pointer;
@@ -222,7 +243,7 @@ input[type=radio]:checked+label{
 }
 
 .btnLightBlue.btnPush:hover {
-  box-shadow: 0px 0px 0px 0px #1E8185;
+  box-shadow: 0px 0px 0px 0px #faccc1;
 }
 
 .btnMargin {
