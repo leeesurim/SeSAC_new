@@ -1,71 +1,163 @@
-/* css 초기화 */
-body {
-    background-color: #f5f5f5;
-  }
-  .nav-container {
-    /*  */
-    position: fixed;
-    width: 100%;
-    height: 75px;
-    vertical-align: middle;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
+
+.grid-container{
+  display:grid;
+  grid-template-columns: 700px 1fr ;
+  grid-template-rows: 650px 1fr;
+  max-width: 100%;
+  max-height: 100%;
+  margin : 0 auto;
+}
+.grid-item:nth-child(1){
+  grid-row-start:1;
+  grid-row-end: 3;
+}
+.grid-item:nth-child(2){
+  grid-column-start:2;
+  grid-column-end:3;
+  grid-row-start:1;
+  grid-row-end: 3;
+}
+.image-daily{
+  width: 100%;
+  height: 100%;
+  margin: 0px auto;
+  position: relative;
+  object-fit:cover; 
+}
+.image-daily1{
+  width:100%;
+  height:100%;
+  object-fit:cover; 
+}
+.image-daily2{
+  position: absolute;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover; 
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+.login_main{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 350px;
+}
+.login_letter{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Jua', sans-serif;
+}
+.input_id1{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+.input_id2{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 450px;
+  height: 50px;
+  font-family: 'Jua', sans-serif;
+  font-size : 20px;
+  padding : 20px;
+}
+.input_id2 > input{
+  background-color: #eee;
+  border: double rgb(186, 184, 184) 1px;
+  width: 450px;
+  height: 35px;
+}
+.input_pw1{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+.input_pw2{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 450px;
+  height: 50px;
+  font-family: 'Jua', sans-serif;
+  font-size : 20px;
+}
+.input_pw2 > input{
+  background-color: #eee;
+  border: double rgb(186, 184, 184) 1px;
+  width:450px;
+  height:35px;
+}
+.login_btn1 {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+}
+.login_btn1 > a {
+  position: relative;
+  left: 150px;
+  bottom: 50px;
+  transform: translate(-50%,-50%);
+  width: 220px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Jua', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #ccc;
   
-  .nav-button {
-    display: inline-block;
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
-  }
-  
-  .nav-logo {
-    display: inline-block;
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    margin-top: 12px;
-    margin-right: 12px;
-  }
-  .nav-button-container {
-    float: right;
-    margin-top: 12px;
-    margin-right: 12px;
-  }
-  
-  .main-container {
-    padding-top: 75px;
-    height: 2000px;
-  }
-  
-  /* 슬라이더 */
-  .slider-container {
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 200px;
-  }
-  .slick-prev:before,
-  .slick-next:before {
-  }
-  .slider-items {
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-  }
-  
-  /* 시작하기(회원가입 버튼) */
-  .start-button-container {
-    margin-top: 200px;
-  }
-  .main-start-button {
-    width: 150px;
-    height: 50px;
-    background-color: green;
-    margin: 0 auto;
-    line-height: 50px;
-    text-align: center;
-    cursor: pointer;
-  }
+}
+a:before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: rgb(244, 161, 53);
+  color: #fff;
+  transition: 0.5s;
+  transform-origin: bottom;
+  transform: translatey(-100%) rotatex(90deg);
+}
+a:hover:before
+{
+  transform: translatey(0) rotatex(0deg);
+}
+
+a:after{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: gray;
+  color: #fff;
+  transition: 0.5s;
+  transform-origin: top;
+  transform: translatey(0) rotatex(0deg);
+}
+a:hover:after
+{
+  transform: translatey(100%) rotatex(90deg);
+}
+
+.image-daily:hover .image-daily2{
+  opacity: 1;
+}
