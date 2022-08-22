@@ -7,30 +7,40 @@
     <title>Document</title>
 
     <!-- TOAST UI Editor CDN(CSS) -->
-    <!-- <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" /> -->
-    <link rel="stylesheet" href="../public/css/memo.css">
-    <style></style>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <link rel="stylesheet" href="css/memo.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        function submit(){
+            $(".left").val("123")
+        }
+    </script>
 </head>
 <body>
-    <!-- <form method="POST">
-        <div id="editor"></div>
-        <button onclick="submit();">전송</button>
-    </form> -->
-
     <header class="sidebar">
         sidebar
     </header>
     <main>
         <section class="left">
             left
+           
         </section>
             
         <section class="right">
-            right
+            <form id="form_content">
+                <div id="editor">
+                </div>
+                
+
+                <!-- <div id="editor" name="editor"></div> -->
+                <button type="button" onclick="submit();">전송</button>
+            </form>
         </section>
     </main>
     
-    <!-- <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script>
         const Editor = toastui.Editor;
 
@@ -46,7 +56,7 @@
                     ['scrollSync'],
                 ],
             });
-    </script> -->
+    </script>
     
 </body>
 </html>
