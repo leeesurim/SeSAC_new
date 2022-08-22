@@ -5,28 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   
+
     <!-- TOAST UI Editor CDN(CSS) -->
-    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
-    
-    <style>
-        #editor {
-            width: 50vw;
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" /> -->
+    <link rel="stylesheet" href="../public/css/memo.css">
+    <style></style>
 </head>
 <body>
-    <form method="POST">
+    <!-- <form method="POST">
         <div id="editor"></div>
         <button onclick="submit();">전송</button>
-    </form>
+    </form> -->
 
-    <div class="result">
-
-    </div>
+    <header class="sidebar">
+        sidebar
+    </header>
+    <main>
+        <section class="left">
+            left
+        </section>
+            
+        <section class="right">
+            right
+        </section>
+    </main>
     
-    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-
+    <!-- <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script>
         const Editor = toastui.Editor;
 
@@ -42,14 +46,7 @@
                     ['scrollSync'],
                 ],
             });
-        
-        function submit() {
-            document.getElementsByClassName('result') = "어쩌구"
-            // editor.getHTML()
-        }
-
-    </script>
-
-
+    </script> -->
+    
 </body>
 </html>

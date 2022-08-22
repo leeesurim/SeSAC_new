@@ -37,7 +37,7 @@ main {
     position: fixed;
     left: 180px;
     display: flex;
-    /* flex-direction: center; */
+    flex-direction: center;
     width: calc(100vw - 180px);
     height: 100vh;
     min-height: 100vh;
