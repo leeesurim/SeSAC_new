@@ -8,9 +8,18 @@ app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.use( bodyParser.json() );
 
-const router = require("./routes");
-app.use("/", router); 
 
+app.get("/", function(req, res){
+    res.render("index");
+});
+
+app.post("/write", function(req, res){
+    console.log(req.body);
+    // res.send는 하나의 인자만 보낼 수 있음
+    // res.send로 여러개 보내려면 딕셔너리 이용
+    res.send({content: req.body.content})
+//    res.render("index", {content: req.body.content});
+})
 app.listen(port, ()=>{
     console.log( "Server Port : ", port );
 })
