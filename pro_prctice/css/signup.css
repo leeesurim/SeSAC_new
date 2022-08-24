@@ -12,15 +12,23 @@
   font-style: normal;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100%;
+  background-color: #f8fafb;
   font-family: 'Pretendard-Medium';
 }
 
 a {
   text-decoration: none;
-  color: #263343;
+  color: #000;
 }
 
 a:hover {
@@ -31,9 +39,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #B0BEC5; */
-  background-color: #faccc1;
-  /* background-color: #fdd6bd; */
+  background-color: #EAEAEA;
   padding: 8px 12px;
   opacity: 0.8;
   
@@ -44,7 +50,7 @@ a:hover {
 }
 
 .navbar_logo {
-  font-size: 24px;
+  font-size: 1.8rem;
   font-family: 'GangwonEduPowerExtraBoldA';
 }
 
@@ -60,42 +66,43 @@ a:hover {
 
 .navbar_menu li:hover {
   border-radius: 4px;
+  /* background-color: #FF725E; */
   border:2px solid #FF725E;
 }
 
 main{
+  position: absolute;
+  top: 60px;
   display: flex;
-  padding-top: 10vh;
-  padding-bottom: 5vh;
+  flex-direction: center;
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  width: 100vw;
+  height: calc(100vh - 60px);
 }
 
-article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid #EAEAEA;
-  margin: auto;
-  
-}
 
 .left {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  /* background-color: #FF725E; */
 }
 
 img {
-  display: flex;
-  width: 50vh;
-  height: 80vh;
-  margin-left: auto;
-  margin-right: 50px; 
-  border-radius: 8px;
+  width: 50vw;
 }
+
 
 .right {
   flex: 1;
-  height: 80vh;
-  width: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  /* background-color: antiquewhite; */
   
 }
 
@@ -103,13 +110,15 @@ img {
   font-size: 1.6rem;
   line-height: 1.5;
   font-weight: 900;
-  margin-top: 3vh;
-  /* margin-bottom: 3vh; */
+  text-align: center;
+  /* margin-right: 3vh; */
 }
 
 .signform {
   display: flex;
   flex-direction: column;
+  padding-top: 5%;
+  
 }
 
 .titLab {
@@ -120,9 +129,9 @@ img {
 }
 
 input {
-  max-width: 360px;
-  height: 45px;
-  line-height: 45px;
+  max-width: 370px;
+  height: 48px;
+  line-height: 48px;
   display: inline-block;
   min-width: 100px;
   padding: 0 15px;
@@ -153,16 +162,16 @@ input:focus {
   display: inline-block;
   font-weight: 600;
   text-align: center;
-  flex: 0 0 100px;
-  margin-left: 8px;
+  flex: 0 0 110px;
+  margin-left: 10px;
   min-width: auto;
   padding: 0 10px;
 }
 
 .btnL {
-  min-width: 100px;
-  height: 45px;
-  line-height: 45px;
+  /* min-width: 100px; */
+  height: 48px;
+  line-height: 48px;
   padding: 0 10px;
   color: #FF725E;
   font-size: 1rem;
@@ -193,9 +202,9 @@ input:focus {
   display: inline-block;
   cursor: pointer;
   /* width: 200px; */
-  flex: 0 0 180px;
+  flex: 0 0 185px;
   padding: 0;
-  margin: 0px 1px 5px 0;
+  margin: 0px 3px 5px 0;
   font-weight: 600;
   text-align: center;
   line-height: 50px;
@@ -217,7 +226,7 @@ input[type=radio]:checked+label{
   display: block;
   position: relative;
   float: left;
-  width: 360px;
+  width: 375px;
   padding: 0;
   margin: 10px 20px 10px 0px;
   font-weight: 600;

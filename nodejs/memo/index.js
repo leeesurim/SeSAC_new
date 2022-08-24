@@ -13,6 +13,10 @@ app.get("/", function(req, res){
     res.render("index");
 });
 
+app.get("/jin",function(req,res){
+    res.render("jin");
+});
+
 app.post("/write", function(req, res){
     console.log(req.body);
     // res.send는 하나의 인자만 보낼 수 있음
