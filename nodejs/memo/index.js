@@ -10,7 +10,7 @@ app.use( bodyParser.json() );
 
 
 app.get("/", function(req, res){
-    res.render("index");
+    res.render("memo");
 });
 
 app.get("/jin",function(req,res){
