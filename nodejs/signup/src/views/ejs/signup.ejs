@@ -13,6 +13,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>signup</title>
     <script>
+        
     
         function signup() {
             let form = document.getElementById('form_signup');
@@ -22,6 +23,11 @@
                     console.log( "reportValidity" );
 
                     return false;
+            }
+
+            if ($("input[name=hiddenID]").val() == ''){
+                alert('아이디 중복 확인을 해주세요');
+                return false;
             }
 
             let user = {
@@ -85,7 +91,10 @@
                     text: "사용할 수 있는 아이디입니다.",
                     icon: "success",
                     button: "확인",
-                });
+                })
+                .then((success) => {
+                    $("input[name=hiddenID]").val('y');
+                })
                 // $(".checkID").css("color", "blue");
                 // $(".checkID").text("사용할 수 있는 아이디입니다.");
             }
@@ -222,6 +231,7 @@
                     <div class="inp_dup">
                         <input type="text" class="inpL" name="id" id="id" placeholder="아이디를 입력하세요" required>
                         <a href="javascript:;" role="button" class="btnDefault btnL btnLineP" id="btnID" onclick="checkID();">중복확인</a>
+                        <input type="hidden" name="hiddenID" value="">
                     </div>
                     <span class="checkID"></span>
 
