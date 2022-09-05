@@ -1,0 +1,86 @@
+.box {
+    margin-bottom: 100px;
+}
+
+.px {
+    width: 500px;
+    height: 500px;
+    background-color: orangered;
+}
+
+.pct-parent {
+    width: 500px;
+    height: 500px;
+    background-color: violet;
+}
+
+/* %는 부모 기준으로 적용 */
+.pct-child {
+    width: 50%; /* 250px */
+    height: 50%; /* 250px */
+    background-color: greenyellow;
+}
+
+.em {
+    font-size: 2em;
+}
+
+.case1 {
+    font-size: 20px;
+}
+
+.case2 {
+    font-size: 10px;
+}
+
+.em-3 {
+    font-size: 3em;
+}
+
+.rem {
+    font-size: 2rem;
+}
+
+.vw {
+    height: 20vw; /* 가로 너비의 기준으로 지정*/
+    width: 20vw;
+    background-color: coral;
+}
+
+.vh {
+    height: 20vh;
+    width: 20vh;
+    background-color: skyblue;
+}
+
+.test {
+    font-size: 30px;
+    margin-bottom: 100px;
+}
+
+.one {
+    width: 30vw;
+    height: 30vw;
+    background-color: aquamarine;
+    margin-bottom: 10px;
+    
+}
+
+@media screen and (min-width: 768px){
+    .px {
+        width: 900px;
+        height: 900px;
+        background-color: pink;
+    }
+
+    .test {
+        font-size: 5vw;
+    }
+
+    .one {
+        width: 40vw;
+        height: 40vw;
+        background-color: aqua;
+        display: inline-block;
+    }
+}
