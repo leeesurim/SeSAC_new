@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>실습 50. Socket 연습</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <button type="button" onclick="btnHello();">Hello</button>
+        <button type="button" onclick="btnStudy();">Study</button>
+        <button type="button" onclick="btnBye();">Bye</button>
+        <br>
+        <h5 id="content"></h5>
+        <script>
+            var socket = io.connect();
+
+            socket.on("connect", function(){
+                console.log("server connected");
+            });
+
+            function btnHello(){
+                socket.emit("hello", "Hello!");
+            }
+
+            socket.on("clickHello", function(data){
+                var tag = document.getElementById("content");
+                tag.textContent = data;
+                console.log("client: ", data);
+            })
+
+            function btnStudy(){
+                socket.emit("study", "Study!");
+            }
+
+            socket.on("clickStudy", function(data){
+                var tag = document.getElementById("content");
+                tag.textContent = data;
+                console.log("client: ", data);
+            })
+
+            function btnBye(){
+                socket.emit("bye", "Bye!");
+            }
+
+            socket.on("clickBye", function(data){
+                var tag = document.getElementById("content");
+                tag.textContent = data;
+                console.log("client: ", data);
+            })
+
+        </script>
+    </body>
+</html>
