@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js "></script>
+    </head>
+    <body>
+        <button type="button" onclick="send('hello');">hello</button>
+        <button type="button" onclick="send('study');">study</button>
+        <button type="button" onclick="send('bye');">bye</button>
+        <h5 id="content"></h5>
+        <script>
+            var socket = io.connect();
+
+            // 이거 작성하지 않으면 연결 불가!!!
+            socket.on("connect", function(){
+                console.log("server connected");
+            });
+
+            function send(e){
+                // e : hello
+                // socket.emit ( 'hello', 'hello')
+                // socket.emit('study', 'study')
+                // socket.emit(e, e);
+                socket.emit("send", e);
+                console.log("e : "+ e);
+            }
+            
+            socket.on("response", function(data){
+                var tag = document.getElementById("content");
+                tag.textContent = data;
+            });
+        </script>
+    </body>
+</html>
