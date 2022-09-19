@@ -16,25 +16,24 @@
                 --accent-color: #4f7cff;
                 --border-color: #dfdfdf;
             }
-            body { margin: 0; padding: 0; box-sizing: border-box; }
-            .chat-page {width: 50%;  border: 1px solid var(--border-color); padding: 10px;}
+            body { margin: 0; padding: 0; box-sizing: border-box; font-family: 'GangwonEdu_OTFBoldA';}
+            .chat-page {width: 25%; height: 70%; border: 1px solid var(--border-color); padding: 10px; display: flex; flex-direction: column; justify-content: center; position: absolute; top: 15%; left: 37%;}
             .chat-top {height: 8%; display: flex; justify-content: center; align-items: center; color: #3a3a3a; font-size: 1.5rem;}
-            .chat-list { background-color: var(--background-color); height: 60%; padding: 10px; overflow-y: auto; overflow-x: hidden; ;}
-            .notice-text { text-align: center;  background-color: rgb(79, 124, 255, 0.4); color: #3a3a3a; border-radius: 20px; padding: 5px 15px; font-size: 0.7rem; }
+            .chat-list { background-color: var(--background-color); height: 80%; padding: 10px; overflow-y: auto; overflow-x: hidden;}
+            .notice-text { text-align: center;  background-color: rgb(79, 124, 255, 0.4); color: #3a3a3a; border-radius: 20px; padding: 5px 15px; font-size: 0.8rem; }
             .notice {display: flex; justify-content: center; align-items: center; padding: 4px 0;}
             /* <div class="chat-list"><div class="my-chat"><div>텍스트</div></div></div>  */
             .chat-list div div { display: inline-block;}
             .my-chat { display: flex; justify-content: right; flex-direction: column; align-items: flex-end; padding: 4px 0; }
             .my-chat span { display: inline-block; font-size: 0.8rem; padding: 5px 1px; }
-            .my-chat div { background-color: var(--accent-color); color:#fff; border-radius: 3px; padding: 6px 10px; white-space: pre-line; font-size: 0.9rem; }
+            .my-chat div { background-color: var(--accent-color); color:#fff; border-radius: 3px; padding: 6px 10px; white-space: pre-line; }
             .other-chat { padding: 4px 3px; display: flex; justify-content: left; align-items: flex-start; flex-direction: column;}
             .other-chat span {display: inline-block; font-size: 0.8rem; padding: 5px 1px;}
             .other-chat div {background-color:#ededed; border-radius: 3px; padding: 6px 10px; white-space: pre-line; font-size: 0.9rem;}
-            .chat-op {  background-color: var(--background-color); display: flex; justify-content: space-between; align-items: center; height: 8%; padding: 0 20px; border: 1px solid var(--border-color); border-radius: 30px;}
-            textarea { width: 80%; height: 80%; padding: 5px 0; background-color: var(--background-color); resize: none; border: none; font-size: 0.9rem;}
-            textarea::placeholder { padding: 10px 0;}
-            select {  border:none; background-color: var(--background-color);}
-            select option { padding: 5px 0; }
+            .chat-op {  background-color: var(--background-color); display: flex; justify-content: space-between; align-items: center; height: 8%; padding: 0 30px; border: 1px solid var(--border-color); border-radius: 30px;}
+            textarea { width: 75%; height: 70%; margin: 5px 0; padding: 5px 0; background-color: var(--background-color); resize: none; border: none; font-size: 1rem;}
+            select { width:12%;  border:none; background-color: var(--background-color); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+            select option { padding: 15px 0; }
             select:focus, option:focus, textarea:focus{outline: none;}
             .DM {color: red;}
             i:hover {cursor: pointer;}
@@ -53,9 +52,9 @@
                 </select>
 
                 <!-- <input type="text" id="message"> -->
-                <textarea id="message" placeholder="메세지를 입력하세요." onkeyup="enter();"></textarea>
+                <textarea id="message" placeholder="메세지를 입력하세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '메세지를 입력하세요.'" onkeyup="enter();"></textarea>
 
-                <a id="btn" onclick="send();"><i class="fa-regular fa-paper-plane fa-lg" style="color: var(--accent-color)"></i></a>
+                <a id="btn" onclick="send();"><i class="fa-regular fa-paper-plane fa-xl" style="color: var(--accent-color)"></i></a>
             
             </div>
         </div>
@@ -64,9 +63,41 @@
         <script>
             var socket = io.connect();
             
-            // prompt를 이용하여 닉네임 입력 받기'
-            var nickname = prompt("닉네임을 입력해 주세요.");
+            // prompt를 이용하여 닉네임 입력 받기
+            while(true){
+                var nickname = prompt("닉네임을 입력해 주세요.(2-10자 제한, 특수문자 제외)");
+                console.log(nickname.length);
+
+                //공백만 입력된 경우
+                var blank_pattern = /^\s+|\s+$/g;
+                if(nickname.replace(blank_pattern, '' ) == "" ){
+                    alert('공백만 입력되었습니다. 다시 입력해 주세요.');
+                    continue;
+                }
+                
+                //문자열에 공백이 있는 경우
+                var blank_pattern = /[\s]/g;
+                if( blank_pattern.test(nickname) == true){
+                    alert('공백이 입력되었습니다. 다시 입력해 주세요.');
+                    continue;
+                }
+                //특수문자가 있는 경우
+                var special_pattern = /[`~!@#$%^&*()+|\\\'\";:\/?]/gi;
+                if(special_pattern.test(nickname) == true){
+                    alert('특수문자가 입력되었습니다. 다시 입력해 주세요.');
+                    continue;
+                }
+
+                // 글자수 초과
+                if ( nickname.length > 10 || nickname.length < 2 ) {
+                    alert('닉네임은 2자 이상 10자 이하로 작성해 주세요.');
+                    continue;
+                }
+
+                break;
+            }
             
+
             // info2 이벤트명으로 닉네임 보내기
             socket.emit("info2", {nickname : nickname});
             
