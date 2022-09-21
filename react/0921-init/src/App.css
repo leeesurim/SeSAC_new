@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.red{
+    background-color: red;
+    width: 5%;
+    height: 10%;
+}
+
+.orange{
+    background-color: orange;
+    width: 5%;
+    height: 20%;
+}
+
+.yellow{
+    background-color: yellow;
+    width: 5%;
+    height: 30%;
+}
+
+.green{
+    background-color: green;
+    width: 5%;
+    height: 40%;
+}
+
+.blue{
+    background-color: blue;
+    width: 5%;
+    height: 50%;
+}
+
+.navy{
+    background-color: navy;
+    width: 5%;
+    height: 60%;
+}
+
+.purple{
+    background-color: purple;
+    width: 5%;
+    height: 70%;
+}
+
