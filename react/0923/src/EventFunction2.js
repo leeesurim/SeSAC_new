@@ -25,7 +25,7 @@ const EventFunction2 = () => {
     };
 
     const onKeyPress = (e) => {
-        if(e.keyy === "Enter") {
+        if(e.key === "Enter") {
             onClick();
         }
     };
