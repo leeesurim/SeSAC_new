@@ -1,0 +1,62 @@
+$pink: pink;
+$yellow: yellow;
+$green: green;
+
+.AnimationSass{
+    width: 800px;
+    height: 800px;
+    
+    @mixin Animation($name, $size){
+        @keyframes #{$name}{
+            from, to{
+                left:0px;
+                top:0px;
+            }
+            25%{
+                left: $size;
+                top: 0px;
+            }
+            50%{
+                left: $size;
+                top: $size;
+            }
+            75%{
+                left: 0px;
+                top: $size;
+            }
+        }
+    }
+
+    .circle {
+        width: 50px; 
+        height: 50px;
+        border-radius: 50px;
+
+        position: relative;
+        animation-iteration-count: 6;
+        animation-duration: 3s;
+        animation-timing-function: ease-out;
+
+        &.pink {
+            animation-name: pinkA;
+            background: $pink;
+        }
+    
+        &.yellow {
+            animation-name: yellowA;
+            background-color: $yellow;
+        }
+    
+        &.green {
+            animation-name: greenA;
+            background-color: $green;
+        }
+    }
+
+    @include Animation("pinkA", 100px);
+    @include Animation("yellowA", 200px);
+    @include Animation("greenA", 300px);
+    
+
+    
+}

@@ -1,0 +1,70 @@
+.LarvaSass {
+    display: flex;
+    width: 400px;
+    height: 250px;
+    
+    @mixin circleSize($size){
+        width: 100px * $size; 
+        height: 100px * $size;
+        border-radius: 100px;
+    }
+
+    .div1 {
+        @include circleSize(1);
+        background: dodgerblue;
+    }
+
+    .div2 {
+        @include circleSize(0.4);
+        background: white;
+        position: relative;
+        left: 20px;
+        top: 20px;
+    }
+
+    .div3 {
+        @include circleSize(0.2);
+        border-radius: 20px;
+        background: black;
+        position: relative;
+        top: 10px;
+    }
+
+    .div4{
+        @include circleSize(1);
+        background:royalblue;
+        position: relative;
+        left: 80px;
+    }
+
+    .div5{
+        @include circleSize(1);
+        background:navy;
+        position: relative;
+        left: 120px;
+        bottom: 60px;
+    }
+
+    .div6{
+        @include circleSize(1);
+        background: skyblue;
+        position: relative;
+        left: 170px;
+        bottom: 160px;
+    }
+
+    .div7{
+        @include circleSize(1);
+        background: teal;
+        position: relative;
+        left: 230px;
+        bottom: 380px;
+    }
+
+    img{
+        width: 400px;
+        height: 120px;
+        position: relative;
+        bottom: 230px;
+    }
+}

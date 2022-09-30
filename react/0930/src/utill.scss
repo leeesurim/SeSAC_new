@@ -1,0 +1,13 @@
+$red: red;
+$orange: orange;
+$yellow: yellow;
+$green: green;
+$blue: blue;
+$indigo: indigo;
+$purple: purple;
+
+// @minxin - 재사용 가능함
+@mixin boxSize($size){
+    width: 100px;
+    height: 20px * $size;
+}
