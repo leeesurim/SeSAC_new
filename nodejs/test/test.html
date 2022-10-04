@@ -1,34 +1,13 @@
-<script>
-const f1 = () => {
-    return new Promise((res, rej) => {
-        setTimeout(function () {
-            res("1번 주문 완료");
-        }, 1000);
-    });
-};
-
-const f2 = (message) => {
-    console.log(message);
-    return new Promise((res, rej) => {
-        setTimeout(function () {
-            res("2번 주문 완료");
-        }, 3000);
-    });
-};
-
-const f3 = (message) => {
-    console.log(message);
-    return new Promise((res, rej) => {
-        setTimeout(function () {
-            res("3번 주문 완료");
-        }, 2000);
-    });
-};
-
-// Promise.race
-console.time("x");
-Promise.race([f1(), f2(), f3()]).then(res => {
-    console.log(res);
-    console.timeEnd("x");
-})
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="test.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
