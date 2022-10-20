@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import './App.css';
 import FormInput from './components/FormInput';
 import FileInput from './components/FileInput';
-import axios from './api/axios';
+
 
 function App() {
   const [values, setValues] = useState({
@@ -64,12 +64,11 @@ function App() {
     },
   ]
 
-  const REGISTER_URL = '/register';
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
     console.log(Object.fromEntries(data.entries()));
+    console.log(values);
     
   }
 
