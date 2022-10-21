@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import './App.css';
 import FormInput from './components/FormInput';
 import FileInput from './components/FileInput';
