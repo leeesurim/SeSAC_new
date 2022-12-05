@@ -1,0 +1,29 @@
+# docker compose 파일의 버전
+version: "3.8"
+# 컨테이너를 실행하기 위한 단위로 하위에는 서비스 이름 > 서비스 옵션 순으로 작성
+services:
+  sesac-codingon:
+    volumes: 
+      - /app/node_modules
+      - ./:/app/
+    build: 
+      # build 할 dockerfile의 경로를 지정
+      # docker build를 실행할 디렉토리로 dockerfile을 찾는다.
+      # dockerfile: Dockerfile22
+      context: .
+    ports:
+      # : 이 없으면 컨테이너포트(특정한 포트를 지정하고 싶다면 동일하더라도 콜론으로 작성해줘야 함)
+      - "8000:8000"
+  node:
+    image: "node:16"
+    working_dir: /usr/src/app
+    volumes:
+      # 로컬과 컨테이너 연결하는 기능 
+      # 수정하는 곳 : 반영해야 하는 곳
+      - ./:/usr/src/app
+    ports:
+      - "8001:8000"
+    command: bash -c "npm install && node index"
+
+
+    # docker-compose up - docker-compsoe.yml 파일에 정의한 컨테이너를 실행

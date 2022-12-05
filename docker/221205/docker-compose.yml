@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  react:
+    volumes: 
+      - /app/node_modules
+      - ./frontend:/app/
+    build: 
+      context: ./frontend
+    ports:
+      - "3000:3000"
+  node:
+    image: "node:16"
+    working_dir: /usr/src/app
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - "8001:8000"
+    command: bash -c "npm install && node index"
+
+
+    # docker-compose up - docker-compsoe.yml 파일에 정의한 컨테이너를 실행
